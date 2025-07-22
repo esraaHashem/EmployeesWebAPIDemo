@@ -48,7 +48,7 @@ export class NewEmployeeComponent {
               message: 'Your data has been saved successfully!',
               isSuccess: true,
               buttonText: 'Great!'
-            }
+            }, disableClose: true
           }).afterClosed().subscribe(() => {
             this.isLoading = false;
             this.router.navigate(['/employee-list']);
@@ -61,7 +61,7 @@ export class NewEmployeeComponent {
               title: 'Operation Failed, Unable to save data.',
               message: error.message + ', Please try again.',
               isSuccess: false
-            }
+            }, disableClose: true
           }).afterClosed().subscribe(() => {
             this.isLoading = false;
             this.router.navigate(['/employee-list']);

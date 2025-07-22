@@ -55,7 +55,8 @@ export class UpdateEmployeeDialogComponent {
               message: 'Employee updated successfully',
               isSuccess: true,
               buttonText: 'Good Job!'
-            }
+            },
+            disableClose: true
           }).afterClosed().subscribe(() => {
             this.isLoading = false;
             this.dialogRef.close(true);
@@ -67,7 +68,7 @@ export class UpdateEmployeeDialogComponent {
             title: 'Operation Failed, Unable to update employee.',
             message: error.message + ', Please try again.',
             isSuccess: false
-          }
+          }, disableClose: true
         }).afterClosed().subscribe(() => {
           this.isLoading = false;
         });

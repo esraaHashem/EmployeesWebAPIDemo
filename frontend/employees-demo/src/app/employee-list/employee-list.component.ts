@@ -47,7 +47,7 @@ export class EmployeeListComponent {
             title: 'Operation Failed, Unable to load data.',
             message: error.message + ', Please try again.',
             isSuccess: false
-          }
+          }, disableClose: true
         }).afterClosed().subscribe(() => {
           this.isLoading = false;
         });
@@ -65,7 +65,7 @@ export class EmployeeListComponent {
   }
 
   editEmployee(element: Employee): void {
-    this.dialog.open(UpdateEmployeeDialogComponent, { data: element })
+    this.dialog.open(UpdateEmployeeDialogComponent, { data: element ,  disableClose: true })
       .afterClosed().subscribe(result => {
         if (result) {
           this.loadData();
@@ -75,9 +75,9 @@ export class EmployeeListComponent {
   }
 
   deleteEmpolyee(element: Employee): void {
-    this.isLoading = true;
-    this.dialog.open(ConfirmDialogComponent).afterClosed().subscribe(result => {
+    this.dialog.open(ConfirmDialogComponent, { disableClose: true }).afterClosed().subscribe(result => {
       if (result) {
+        this.isLoading = true;
         this.employeeService.deleteEmployee(element.id).subscribe({
           next: (data) => {
             if (data) {
@@ -89,7 +89,7 @@ export class EmployeeListComponent {
                     message: 'Employee deleted successfully',
                     isSuccess: true,
                     buttonText: 'Great!'
-                  }
+                  }, disableClose: true
                 }).afterClosed().subscribe(() => {
                   this.isLoading = false;
                   this.loadData();
@@ -103,7 +103,7 @@ export class EmployeeListComponent {
                 title: 'Operation Failed, Unable to delete employee.',
                 message: error.message + ', Please try again.',
                 isSuccess: false
-              }
+              }, disableClose: true
             }).afterClosed().subscribe(() => {
               this.isLoading = false;
             });
