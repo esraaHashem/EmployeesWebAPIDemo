@@ -1,0 +1,22 @@
+@EmployeesAPI_HostAddress = https://localhost:7294
+
+GET {{EmployeesAPI_HostAddress}}/api/authors
+
+###
+
+POST {{EmployeesAPI_HostAddress}}/api/books
+Content-Type: application/json
+
+{
+  //Book
+}
+
+###
+
+GET {{EmployeesAPI_HostAddress}}/books
+
+###
+
+GET {{EmployeesAPI_HostAddress}}/books/0
+
+###

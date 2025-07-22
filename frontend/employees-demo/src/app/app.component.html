@@ -1,0 +1,41 @@
+<main class="container-fluid">
+  <mat-toolbar color="primary" class="">
+
+    <div class="row">
+      <div class="col-6">
+        <span>Employees Demo</span>
+        <span class="spacer"></span>
+      </div>
+
+      <div class="col-4">
+
+        <button mat-button class="btn btn-primary"  [routerLink]="['/new-employee']">
+          <mat-icon>person_add</mat-icon>
+          Employee
+        </button>
+
+
+      </div>
+
+
+      <div class="col-2 float-right">
+        <button class="btn btn-primary" mat-button [routerLink]="['/employee-list']">
+          <mat-icon>people</mat-icon>
+          Employees
+        </button>
+      </div>
+
+    </div>
+
+
+
+
+
+
+
+    <!-- <button class="btn btn-primary" mat-button><mat-icon>people</mat-icon> Employees</button> -->
+  </mat-toolbar>
+
+
+  <router-outlet />
+</main>

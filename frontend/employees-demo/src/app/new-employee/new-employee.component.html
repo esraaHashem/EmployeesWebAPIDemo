@@ -1,0 +1,123 @@
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <h2>Add New Employee</h2>
+        </div>
+        <div class="col-md-9 mt-5">
+            <form class="row g-3" [formGroup]="newEmployee" (submit)="addEmployee()">
+
+                <!-- *********************************************************** First Name *********************************************************** -->
+                <div class="col-md-6">
+                    <label for="firstName" class="form-label">First Name :</label>
+                    <div class="input-group"
+                        [ngClass]="{'border' : true , 
+                                                        'border-danger': newEmployee.get('firstName')?.invalid && newEmployee.get('firstName')?.dirty,
+                                                        'border-success': newEmployee.get('firstName')?.valid && newEmployee.get('firstName')?.dirty}">
+                        <span class="input-group-text" id="basic-addon1" *ngIf="newEmployee.get('firstName')?.dirty">
+                            <i *ngIf="newEmployee.get('firstName')?.dirty"
+                                [ngClass]="{
+                                                                        'bi': true,
+                                                                        'bi-check-circle-fill text-success': newEmployee.get('firstName')?.valid,
+                                                                        'bi-x-circle-fill text-danger': newEmployee.get('firstName')?.invalid }">
+                            </i>
+
+
+                        </span>
+                        <input type="text" class="form-control no-inner-border" formControlName="firstName"
+                            id="firstName" placeholder="First Name Here...... ">
+                    </div>
+
+                    <div *ngIf="newEmployee.get('firstName')?.invalid && newEmployee.get('firstName')?.dirty"
+                        class="error-message">
+                        <i class="bi bi-info-circle-fill text-danger"></i>
+                        first name is required
+                    </div>
+                </div>
+                <!-- *********************************************************** Last Name *********************************************************** -->
+                <div class="col-md-6">
+                    <label for="lastName" class="form-label">Last Name :</label>
+                    <div class="input-group"
+                        [ngClass]="{'border' : true , 
+                                                        'border-danger': newEmployee.get('lastName')?.invalid && newEmployee.get('lastName')?.dirty,
+                                                        'border-success': newEmployee.get('lastName')?.valid && newEmployee.get('lastName')?.dirty}">
+                        <span class="input-group-text" id="basic-addon1" *ngIf="newEmployee.get('lastName')?.dirty">
+
+                            <i *ngIf="newEmployee.get('lastName')?.dirty"
+                                [ngClass]="{
+                                                                        'bi': true,
+                                                                        'bi-check-circle-fill text-success': newEmployee.get('lastName')?.valid,
+                                                                        'bi-x-circle-fill text-danger': newEmployee.get('lastName')?.invalid }">
+                            </i>
+
+                        </span>
+                        <input type="text" class="form-control no-inner-border" id="lastName" formControlName="lastName"
+                            placeholder="Last Name Here...... ">
+
+                    </div>
+                    <div *ngIf="newEmployee.get('lastName')?.invalid && newEmployee.get('lastName')?.dirty"
+                        class="error-message">
+                        <i class="bi bi-info-circle-fill text-danger"></i>
+                        last name is required
+                    </div>
+                </div>
+
+                <!-- *********************************************************** Email *********************************************************** -->
+                <div class="col-12 ">
+                    <label for="email" class="form-label">Email :</label>
+
+                    <div class="input-group"
+                        [ngClass]="{'border' : true , 
+                                                        'border-danger': newEmployee.get('email')?.invalid 
+                                                        && (newEmployee.get('email')?.dirty || newEmployee.get('email')?.touched),
+                                                        'border-success': newEmployee.get('email')?.valid && (newEmployee.get('email')?.dirty || newEmployee.get('email')?.touched)}">
+
+
+                        <span class="input-group-text" id="basic-addon1"
+                            *ngIf="newEmployee.get('email')?.dirty || newEmployee.get('email')?.touched">
+                            <i [ngClass]="{
+                                        'bi': true,
+                                        'bi-check-circle-fill text-success': newEmployee.get('email')?.valid,
+                                        'bi-x-circle-fill text-danger': newEmployee.get('email')?.invalid
+                                }"></i>
+                        </span>
+                        <input type="email" class="form-control no-inner-border" id="email"
+                            placeholder="example@email.com" formControlName="email">
+                    </div>
+
+                    <div *ngIf="newEmployee.get('email')?.invalid && newEmployee.get('email')?.dirty && newEmployee.get('email')?.errors?.['required']"
+                        class="error-message">
+                        <i class="bi bi-info-circle-fill text-danger"></i>
+                        email is required
+                    </div>
+
+
+                    <div *ngIf="newEmployee.get('email')?.invalid && newEmployee.get('email')?.dirty && newEmployee.get('email')?.errors?.['email']"
+                        class="error-message">
+                        <i class="bi bi-info-circle-fill text-danger"></i>
+                        valid email is required
+                    </div>
+
+                </div>
+
+                <!-- *********************************************************** Position *********************************************************** -->
+                <div class="col-12">
+                    <label for="position" class="form-label">Position:</label>
+                    <input type="text" class="form-control" id="position" placeholder="Position Here...... "
+                        formControlName="position">
+                </div>
+
+                <!-- *********************************************************** Actions *********************************************************** -->
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-2">
+                            <button type="submit" class="btn btn-success"
+                                [disabled]="!newEmployee.valid">Create</button>
+                        </div>
+                        <div class="col-2">
+                            <button type="button" (click)="cancelAddEmployee()" class="btn btn-danger">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>

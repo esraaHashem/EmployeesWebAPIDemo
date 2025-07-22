@@ -1,0 +1,10 @@
+.no-inner-border {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.8rem;
+    padding-left: 2px;
+}
