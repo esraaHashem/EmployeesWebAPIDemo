@@ -56,7 +56,7 @@
 			"response": []
 		},
 		{
-			"name": "404.bad.get.employee",
+			"name": "404.notfound.get.employee",
 			"request": {
 				"method": "GET",
 				"header": [
@@ -114,6 +114,72 @@
 			"response": []
 		},
 		{
+			"name": "400.bad.not.valid.email",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"firstName\": \"esraa\",\r\n  \"lastName\": \"hashem\",\r\n  \"email\": \"esraa\",\r\n  \"position\": \"Senior Software Engineer\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/employees",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "400.bad.missing.many.properties",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"position\": \"Senior Software Engineer\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/employees",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "200.ok.update.employee",
 			"request": {
 				"method": "PUT",
@@ -148,7 +214,7 @@
 			"response": []
 		},
 		{
-			"name": "404.bad.update.employee",
+			"name": "404.notfound.update.employee",
 			"request": {
 				"method": "PUT",
 				"header": [
@@ -182,7 +248,7 @@
 			"response": []
 		},
 		{
-			"name": "404.bad.delete.employee",
+			"name": "404.notfound.delete.employee",
 			"request": {
 				"method": "DELETE",
 				"header": [
