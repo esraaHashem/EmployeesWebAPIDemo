@@ -20,7 +20,7 @@ A RESTful web API for performing CRUD (Create, Read, Update, Delete) operations 
   
  3. Run the frontend service:
     * Navigate to frontend and cd employees-demo
-    * open a terminal (like bash) and ng serve the app
+    * open a terminal (like bash) and run npm install then start the app with ng serve.
     * Open your browser and visit http://localhost:4200
    
 ## Technologies Used
