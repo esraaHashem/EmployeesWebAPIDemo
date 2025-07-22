@@ -47,3 +47,13 @@ Before installation, ensure you have:
 - Angular CLI : npm install -g @angular/cli@19.0.6
 - Visual Studio 2022
 - Postman If Needed
+
+## API Endpoints
+
+| Method            | Endpoint             | Description              |
+| :---------------- | :--------------------| -----------------------  |
+| GET               | /api/employees       | Get all employees        |
+| GET               | /api/employees/{id}  | Get employee by ID       |
+| POST              | /api/employees       | Create new employee      |
+| PUT               | /api/employees/{id}  | Update existing employee |
+| DELETE            | /api/employees/{id}  | Delete existing employee |
