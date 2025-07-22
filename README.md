@@ -16,7 +16,7 @@ A RESTful web API for performing CRUD (Create, Read, Update, Delete) operations 
 2. Run the backend service:
     * Navigate to backend and open Employees.sln.
     * Simply hit the Run button (F5) to start the API service
-    * The backend will run at https://localhost:7294 (or your configured port)
+    * The backend will run at https://localhost:7294
   
  3. Run the frontend service:
     * Navigate to frontend and cd employees-demo
@@ -39,3 +39,21 @@ A RESTful web API for performing CRUD (Create, Read, Update, Delete) operations 
 ### Development Tools
 - Visual Studio 2022 
 - Postman for API testing.
+
+## Prerequisites
+Before installation, ensure you have:
+- .NET 8.0 SDK
+- Node.js v18 or later
+- Angular CLI : npm install -g @angular/cli@19.0.6
+- Visual Studio 2022
+- Postman If Needed
+
+## API Endpoints
+
+| Method            | Endpoint             | Description              |
+| :---------------- | :--------------------| -----------------------  |
+| GET               | /api/employees       | Get all employees        |
+| GET               | /api/employees/{id}  | Get employee by ID       |
+| POST              | /api/employees       | Create new employee      |
+| PUT               | /api/employees/{id}  | Update existing employee |
+| DELETE            | /api/employees/{id}  | Delete existing employee |
