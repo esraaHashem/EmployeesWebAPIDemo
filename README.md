@@ -28,12 +28,12 @@ A RESTful web API for performing CRUD (Create, Read, Update, Delete) operations 
 ### Backend (.NET API)
 - .NET 8.0
 - ASP.NET Core Web API
-- Entity Framework Core
+- Entity Framework Core With In Memory Data
 
 ### Frontend
 - Angular 19
 - TypeScript
-- Angular Material
+- Angular Material 19
 - Bootstrap 5
 
 ### Development Tools
