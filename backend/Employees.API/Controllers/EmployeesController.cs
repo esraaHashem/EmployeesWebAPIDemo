@@ -22,7 +22,7 @@ namespace EmployeesAPI.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        [SwaggerResponse(StatusCodes.Status200OK, "Successfully returned paginated employees",
+        [SwaggerResponse(StatusCodes.Status200OK, "Successfully returned list of employees",
             typeof(IEnumerable<GetEmployeeDTO>))]
         public async Task<IActionResult> GetEmployees()
         {
@@ -36,22 +36,23 @@ namespace EmployeesAPI.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("{employeeId}")]
-        [SwaggerResponse(StatusCodes.Status200OK, "Successfully a User", typeof(GetEmployeeDTO))]
+        [SwaggerResponse(StatusCodes.Status200OK, "Successfully get an employee", typeof(GetEmployeeDTO))]
         [SwaggerResponse(StatusCodes.Status404NotFound, "Not Found", typeof(ProblemDetails))]
         public async Task<IActionResult> GetEmployee(int employeeId)
         {
-            var User = await _employeeService.GetEmployeeAsync(employeeId);
+            var employee = await _employeeService.GetEmployeeAsync(employeeId);
 
-            return Ok(User);
+            return Ok(employee);
         }
 
         /// <summary>
         /// create a new Employee.
         /// </summary>
         /// <param name="employee"></param>
-        /// <returns></returns>
+        /// <returns>bool</returns>
         [HttpPost]
         [Route("/api/Employees")]
+        [SwaggerResponse(StatusCodes.Status200OK, "Successfully a added employee", typeof(bool))]
         public async Task<IActionResult> AddEmployee(CreateUpdateEmployeeRequestDTO employee)
         {
             var result = await _employeeService.CreateEmployeeAsync(employee);
@@ -64,9 +65,11 @@ namespace EmployeesAPI.Controllers
         /// </summary>
         /// <param name="employeeId"></param>
         /// <param name="employeeToUpdate"></param>
-        /// <returns></returns>
+        /// <returns>bool</returns>
         [HttpPut]
         [Route("{employeeId}")]
+        [SwaggerResponse(StatusCodes.Status200OK, "Successfully update an employee", typeof(bool))]
+        [SwaggerResponse(StatusCodes.Status404NotFound, "Not Found", typeof(ProblemDetails))]
         public async Task<IActionResult> UpdateEmployee(int employeeId, CreateUpdateEmployeeRequestDTO employeeToUpdate)
         {
             var result = await _employeeService.UpdateEmployeeAsync(employeeId, employeeToUpdate);
@@ -80,6 +83,8 @@ namespace EmployeesAPI.Controllers
         /// <returns></returns>
         [HttpDelete]
         [Route("{employeeId}")]
+        [SwaggerResponse(StatusCodes.Status200OK, "Successfully delete an employee", typeof(bool))]
+        [SwaggerResponse(StatusCodes.Status404NotFound, "Not Found", typeof(ProblemDetails))]
         public async Task<IActionResult> DeleteUser(int employeeId)
         {
             var result = await _employeeService.DeleteEmployeeAsync(employeeId);
