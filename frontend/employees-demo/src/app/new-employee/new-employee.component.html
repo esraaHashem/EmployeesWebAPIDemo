@@ -3,6 +3,10 @@
         <div class="col-md-12">
             <h2>Add New Employee</h2>
         </div>
+
+        <app-loading-spinner [visible]="isLoading">
+            
+        </app-loading-spinner>
         <div class="col-md-9 mt-5">
             <form class="row g-3" [formGroup]="newEmployee" (submit)="addEmployee()">
 

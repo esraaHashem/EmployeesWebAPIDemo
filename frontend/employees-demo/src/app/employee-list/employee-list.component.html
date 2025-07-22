@@ -10,6 +10,8 @@
                 <input matInput placeholder="Search Here...." (keyup)="applyFilter($event)">
             </mat-form-field>
 
+            <app-loading-spinner [visible]="isLoading"></app-loading-spinner>
+
             <table mat-table [dataSource]="dataSource">
 
                 <ng-container matColumnDef="firstName">
